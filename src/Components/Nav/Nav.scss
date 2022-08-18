@@ -1,5 +1,8 @@
 .navBar{
     display: flex;
-    justify-content: space-around;
-    padding: 5%;
+    flex-direction: column;
+    background-color: aquamarine;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 30vw;
 }

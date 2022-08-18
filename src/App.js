@@ -21,12 +21,18 @@ const getBeer = () =>{
 }
 useEffect(getBeer,[])
 
+const handleClick = () =>{
+  setAlc()
+}
+
 //{dick && will only run if dick is true, intial value of empty dick is false  
 return (
     <div className="App">
         <h1>ITS BEER</h1>
-        <Nav/>
-        {alc &&<BeerContainer beers = {alc}/>}
+        <div className='hi'>
+          <Nav/>
+          {alc &&<BeerContainer beers = {alc}/>}
+        </div>
     </div>
   );
 }

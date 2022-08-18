@@ -14,7 +14,7 @@ console.log(beers)
     const beerArr = beers.map((beer) =>{
         
         return(
-            <BeerCard name= {beer.name} tagline= {beer.tagline} image_url= {beer.image_url}/>
+            <BeerCard name= {beer.name} tagline= {beer.tagline} image_url= {beer.image_url} first_brewed= {beer.first_brewed} />
         )
     })
     
