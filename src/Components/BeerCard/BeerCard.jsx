@@ -1,12 +1,14 @@
+import "./BeerCard.scss"
+
 const BeerCard = (props) =>{
     
-    const {name, tagline} = props;
-    console.log({name}, "HENLO")
+    const {name, tagline, image_url} = props;
     
     return (
-        <div>
-            <h1>{name}</h1>
-            <p>{tagline}</p>
+        <div className="beerCard">
+            <img className="image" src= {image_url} alt="beerimg" />
+            <h2 className="name">{name}</h2>
+            <p className="tagline">{tagline}</p>
         </div>
     )
 

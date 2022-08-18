@@ -1,4 +1,5 @@
 import BeerCard from "../BeerCard/BeerCard";
+import "./BeerContainer.scss"
 
 const BeerContainer = (props) =>{
 
@@ -13,12 +14,12 @@ console.log(beers)
     const beerArr = beers.map((beer) =>{
         
         return(
-            <BeerCard name= {beer.name} tagline= {beer.tagline}/>
+            <BeerCard name= {beer.name} tagline= {beer.tagline} image_url= {beer.image_url}/>
         )
     })
     
     return (
-        <div>
+        <div className="beerCardsWrapper">
             {beerArr}
         </div>
     )
