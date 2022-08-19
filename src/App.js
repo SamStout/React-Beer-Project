@@ -25,26 +25,22 @@ const getBeer = () =>{
 
 useEffect(getBeer,[])
 
-//creates acid beer
-
-///this will call and set the initial arr with the acid beer
-//let filteredAcidityArr= []
-
-const getAcidBeerArr = () =>{
-//setAlc(unfilteredArr.current)
-const filteredAcidityArr = unfilteredArr.current.filter((beer)=>{
-return beer.ph<4})
-setAlc(filteredAcidityArr)
+const getClassicRange = () =>{
+  const filteredClassicArr = unfilteredArr.current.filter((beer)=>{
+  return beer.first_brewed.slice(3) < 2010 })
+  setAlc(filteredClassicArr)
 }
 
-
-/// High ABV ARR
+const getAcidBeerArr = () =>{
+  const filteredAcidityArr = unfilteredArr.current.filter((beer)=>{
+  return beer.ph<4 })
+  setAlc(filteredAcidityArr)
+}
 
 const getHighAbvArr = () =>{
-
-const filteredHighAbvArr = unfilteredArr.current.filter((beer)=>{
-return beer.abv>6})
-setAlc(filteredHighAbvArr)
+  const filteredHighAbvArr = unfilteredArr.current.filter((beer)=>{
+  return beer.abv>6 })
+  setAlc(filteredHighAbvArr)
 }
 
 return (
@@ -52,7 +48,7 @@ return (
     <div className="App">
         <h1>ITS BEER</h1>
         <div className='hi'>
-          <Nav getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
+        <Nav getClassicRange={getClassicRange} getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
           {alc &&<BeerContainer beers = {alc}/>}
         </div>
     </div>
