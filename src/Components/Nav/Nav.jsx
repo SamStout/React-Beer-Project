@@ -1,7 +1,7 @@
 import "./Nav.scss"
 
 const Nav = props => {
-    const {getAcidBeerArr,getBeer, getHighAbvArr} = props;
+    const {getAcidBeerArr ,getBeer, getHighAbvArr} = props;
     
     return (
         

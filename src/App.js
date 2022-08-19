@@ -1,11 +1,15 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import BeerContainer from './Components/BeerContainer/BeerContainer';
 import Nav from './Components/Nav/Nav';
 
 const App = ()=> {
   
 const [alc, setAlc] = useState();
+console.log(alc)
+const unfilteredArr = useRef([])
+
+
 
 const getBeer = () =>{
   fetch("https://api.punkapi.com/v2/beers")
@@ -14,24 +18,31 @@ const getBeer = () =>{
   })
   .then ((beer) => {
     setAlc(beer)
+    unfilteredArr.current = beer
+
   })
 }
+
 useEffect(getBeer,[])
 
 //creates acid beer
 
 ///this will call and set the initial arr with the acid beer
-let filteredAcidityArr=[]
+//let filteredAcidityArr= []
 
 const getAcidBeerArr = () =>{
-filteredAcidityArr = alc.filter((beer)=>{
-return beer.ph>6})
+//setAlc(unfilteredArr.current)
+const filteredAcidityArr = unfilteredArr.current.filter((beer)=>{
+return beer.ph<4})
 setAlc(filteredAcidityArr)
 }
-let filteredHighAbvArr=[]
+
+
+/// High ABV ARR
 
 const getHighAbvArr = () =>{
-filteredHighAbvArr = alc.filter((beer)=>{
+
+const filteredHighAbvArr = unfilteredArr.current.filter((beer)=>{
 return beer.abv>6})
 setAlc(filteredHighAbvArr)
 }
