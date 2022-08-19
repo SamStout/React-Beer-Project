@@ -3,16 +3,8 @@ import { useState, useEffect } from 'react';
 import BeerContainer from './Components/BeerContainer/BeerContainer';
 import Nav from './Components/Nav/Nav';
 
-function App() {
-
-const [highAlcButton, setHighAlcButton] = useState(false)
+const App = ()=> {
   
-const toggleHighAlc = () =>{
-  setHighAlcButton(!highAlcButton)
-  alert("hi")
-}
-
-
 const [alc, setAlc] = useState();
 
 const getBeer = () =>{
@@ -26,27 +18,30 @@ const getBeer = () =>{
 }
 useEffect(getBeer,[])
 
-const handleClick = () =>{
-  setAlc()
+//creates acid beer
+
+///this will call and set the initial arr with the acid beer
+let filteredAcidityArr=[]
+
+const getAcidBeerArr = () =>{
+filteredAcidityArr = alc.filter((beer)=>{
+return beer.ph>6})
+setAlc(filteredAcidityArr)
+}
+let filteredHighAbvArr=[]
+
+const getHighAbvArr = () =>{
+filteredHighAbvArr = alc.filter((beer)=>{
+return beer.abv>6})
+setAlc(filteredHighAbvArr)
 }
 
-let highAlcArr = []
-
-// const createHighAlcArr = () => {
-//   highAlc = alc.filter(beer=>beer.abv>6)
-// };
-const createHighAlcArr = () =>{
-alc && (highAlcArr = alc.filter(beer=>beer.abv>6))
-};
-
-
-
-//{dick && will only run if dick is true, intial value of empty dick is false  
 return (
+
     <div className="App">
         <h1>ITS BEER</h1>
         <div className='hi'>
-          <Nav/>
+          <Nav getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
           {alc &&<BeerContainer beers = {alc}/>}
         </div>
     </div>

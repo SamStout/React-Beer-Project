@@ -1,17 +1,17 @@
 import "./Nav.scss"
 
 const Nav = props => {
-    const {toggleHighAlc} = props;
-
+    const {getAcidBeerArr,getBeer, getHighAbvArr} = props;
     
-    
-    return(
+    return (
         
     <nav className="navBar">
-        <div>All Beers</div>
-        <div>Classic Range</div>
-        <div>High Acidity</div>
-        <button onClick={toggleHighAlc}>High Alcohol</button>
+        <button onClick={getBeer}>All Beers</button>
+        <button>Classic Range</button>
+        <button onClick={getHighAbvArr}>High ABV</button>
+        <button onClick={getAcidBeerArr} >High Acidity</button> 
+
+         {/* <button onClick={() => setBeers(filteredAcidityArr)} >High Alcohol</button> */}
     </nav>      
         
 )
