@@ -1,8 +1,9 @@
 import "./Nav.scss"
 
-const Nav = () => {
+const Nav = props => {
+    const {toggleHighAlc} = props;
 
-
+    
     
     return(
         
@@ -10,7 +11,7 @@ const Nav = () => {
         <div>All Beers</div>
         <div>Classic Range</div>
         <div>High Acidity</div>
-        <div>High Alcohol</div>
+        <button onClick={toggleHighAlc}>High Alcohol</button>
     </nav>      
         
 )
