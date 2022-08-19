@@ -25,6 +25,11 @@ const getBeer = () =>{
 
 useEffect(getBeer,[])
 
+const getAllBeer = () =>{
+  const allBeerArr = unfilteredArr.current
+  setAlc(allBeerArr)
+}
+
 const getClassicRange = () =>{
   const filteredClassicArr = unfilteredArr.current.filter((beer)=>{
   return beer.first_brewed.slice(3) < 2010 })
@@ -48,7 +53,7 @@ return (
     <div className="App">
         <h1>ITS BEER</h1>
         <div className='hi'>
-        <Nav getClassicRange={getClassicRange} getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
+        <Nav getAllBeer= {getAllBeer} getClassicRange={getClassicRange} getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
           {alc &&<BeerContainer beers = {alc}/>}
         </div>
     </div>
