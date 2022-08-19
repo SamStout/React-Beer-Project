@@ -5,12 +5,11 @@ import Nav from './Components/Nav/Nav';
 
 const App = ()=> {
   
+
 const [alc, setAlc] = useState();
-console.log(alc)
-const unfilteredArr = useRef([])
+const unfilteredArr = useRef([]);
 
-
-
+//pulling in api
 const getBeer = () =>{
   fetch("https://api.punkapi.com/v2/beers")
   .then((res)=>{
@@ -24,6 +23,21 @@ const getBeer = () =>{
 }
 
 useEffect(getBeer,[])
+
+
+///nav functionality
+
+//want input box value to lowercase to be saved in input then convert names of array items to lower than use .includes to find
+
+const handleSearch = (event) =>{
+  
+  const cleanSearch = event.target.value.toLowerCase();
+  
+  const searchedBeerArr = unfilteredArr.current.filter((beer)=>{
+    const something = beer.name.toLowerCase().includes(cleanSearch)
+    return something})
+    setAlc(searchedBeerArr)
+}
 
 const getAllBeer = () =>{
   const allBeerArr = unfilteredArr.current
@@ -53,7 +67,7 @@ return (
     <div className="App">
         <h1>ITS BEER</h1>
         <div className='hi'>
-        <Nav getAllBeer= {getAllBeer} getClassicRange={getClassicRange} getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
+        <Nav handleSearch= {handleSearch} getAllBeer= {getAllBeer} getClassicRange={getClassicRange} getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
           {alc &&<BeerContainer beers = {alc}/>}
         </div>
     </div>

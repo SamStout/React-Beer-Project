@@ -1,11 +1,13 @@
 import "./Nav.scss"
 
 const Nav = props => {
-    const {getAllBeer,getAcidBeerArr ,getBeer, getHighAbvArr, getClassicRange} = props;
     
+    const {searchTerm, handleSearch, getAllBeer,getAcidBeerArr, getHighAbvArr, getClassicRange} = props;
+
     return (
         
     <nav className="navBar">
+        <input onInput={handleSearch} value={searchTerm} placeholder="find beer" type="text" />
         <button onClick={getAllBeer}>All Beers</button>
         <button onClick={getClassicRange}>Classic Range</button>
         <button onClick={getHighAbvArr}>High ABV</button>
