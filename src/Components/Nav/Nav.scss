@@ -11,16 +11,17 @@ button {
     display: flex;
     flex-direction: column;
     column-span: all;
-    border: 10px #C1E0F7 solid;
+    border: 5px black solid;
     border-radius: 30px;
     font-size: larger;
     font-weight: bolder;
     margin-bottom: 1rem;
     padding: 1rem;
-    background-color : #C1E0F7}
+    background-color : #C59FC9; 
+}
 
 input {
-    border: 10px black solid;
+    border: 5px black solid;
     border-radius: 30px;
     padding: 1rem;
     margin-bottom: 1rem;
