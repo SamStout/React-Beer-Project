@@ -10,12 +10,15 @@
     padding: 1rem;
     text-align: center;
     margin: 0%;
+    background-color: white
 }
 
 .tagline {
     font-style: italic;
     font-size: small;
     font-weight: bold;
+    background-color: white
+
 }
 
 img {
@@ -24,15 +27,24 @@ img {
     margin-right: auto;
     width : 30px; 
     height: auto;
+    background-color: white
 }
 
+
+.name {
+    background-color: white
+
+}
 
 .description {
     font-weight: bold;
     overflow-y: scroll;
+    background-color: white
 }
 
 .first_brewed{
     font-size: small;
     font-weight: bold;
+    background-color: white
+
 }

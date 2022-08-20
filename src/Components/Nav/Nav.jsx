@@ -7,7 +7,7 @@ const Nav = props => {
     return (
         
     <nav className="navBar">
-        <input onInput={handleSearch} value={searchTerm} placeholder="find beer" type="text" />
+        <input onInput={handleSearch} value={searchTerm} placeholder="Find Beer" type="text" />
         <button onClick={getAllBeer}>All Beers</button>
         <button onClick={getClassicRange}>Classic Range</button>
         <button onClick={getHighAbvArr}>High ABV</button>

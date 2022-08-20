@@ -1,8 +1,11 @@
-.app {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+* {
+  background-color : #C1E0F7;
+  background-blend-mode: hard-light;
 }
+
+
+
+
 
 h1 {
   display: flex;
