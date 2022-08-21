@@ -66,7 +66,7 @@ return (
 
     <div className="App">
         <h1>ITS BEER</h1>
-        <div className='hi'>
+        <div className='content'>
         <Nav handleSearch= {handleSearch} getAllBeer= {getAllBeer} getClassicRange={getClassicRange} getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
           {alc &&<BeerContainer beers = {alc}/>}
         </div>
