@@ -5,12 +5,13 @@ import Nav from './Components/Nav/Nav';
 
 const App = ()=> {
   
-
+const [newAlc, setNewAlc] = useState();
 const [alc, setAlc] = useState();
 const unfilteredArr = useRef([]);
 
+
 //pulling in api
-const getBeer = () =>{
+const getBeer = () =>{ 
   fetch("https://api.punkapi.com/v2/beers")
   .then((res)=>{
     return res.json()
@@ -22,7 +23,23 @@ const getBeer = () =>{
   })
 }
 
+const getNewAPI = () =>{ 
+  fetch("http://192.168.254.145:3080/")
+  .then((res)=>{
+    return res.json()
+  })
+  .then ((beer) => {
+    setNewAlc(beer)
+  })
+}
+
 useEffect(getBeer,[])
+useEffect(getNewAPI,[])
+
+const getNewBeer = () =>{
+  setAlc(newAlc)
+  console.log(newAlc)
+}
 
 
 ///nav functionality
@@ -34,8 +51,8 @@ const handleSearch = (event) =>{
   const cleanSearch = event.target.value.toLowerCase();
   
   const searchedBeerArr = unfilteredArr.current.filter((beer)=>{
-    const something = beer.name.toLowerCase().includes(cleanSearch)
-    return something})
+    const similiarBeer = beer.name.toLowerCase().includes(cleanSearch)
+    return similiarBeer})
     setAlc(searchedBeerArr)
 }
 
@@ -62,12 +79,14 @@ const getHighAbvArr = () =>{
   setAlc(filteredHighAbvArr)
 }
 
+
+
 return (
 
     <div className="App">
         <h1>ITS BEER</h1>
         <div className='content'>
-        <Nav handleSearch= {handleSearch} getAllBeer= {getAllBeer} getClassicRange={getClassicRange} getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
+        <Nav getNewBeer={getNewBeer} handleSearch= {handleSearch} getAllBeer= {getAllBeer} getClassicRange={getClassicRange} getHighAbvArr={getHighAbvArr} getBeer = {getBeer}  getAcidBeerArr = {getAcidBeerArr}/>
           {alc &&<BeerContainer beers = {alc}/>}
         </div>
     </div>

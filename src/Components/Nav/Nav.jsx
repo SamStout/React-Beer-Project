@@ -2,7 +2,7 @@ import "./Nav.scss"
 
 const Nav = props => {
     
-    const {searchTerm, handleSearch, getAllBeer,getAcidBeerArr, getHighAbvArr, getClassicRange} = props;
+    const {searchTerm, handleSearch, getAllBeer, getAcidBeerArr, getHighAbvArr, getClassicRange, getNewBeer} = props;
 
     return (
         
@@ -12,7 +12,7 @@ const Nav = props => {
         <button onClick={getClassicRange}>Classic Range</button>
         <button onClick={getHighAbvArr}>High ABV</button>
         <button onClick={getAcidBeerArr} >High Acidity</button> 
-
+        <button onClick={getNewBeer}> NewAPI</button> 
          {/* <button onClick={() => setBeers(filteredAcidityArr)} >High Alcohol</button> */}
     </nav>      
         
